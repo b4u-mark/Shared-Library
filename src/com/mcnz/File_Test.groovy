@@ -1,6 +1,6 @@
 package com.mcnz
 
-public class FileTest {
+public class File_Test {
 
   def buildrelease() {
     def file = new File("D:/Release_Status.csv")
