@@ -1,15 +1,15 @@
 package com.mcnz
 
-public class uatInput {
+public class FileTest {
 
-  def buildIsUatApproved() {
-    def file = new File("C:/_tools/approved.txt")
+  def buildrelease() {
+    def file = new File("D:/Release_Status.csv")
     
     if (file.exists()){
       return true;
     }
     else {
-      println "Approval file does not exist."
+      println "File does not exist."
     }
     
     return false;
