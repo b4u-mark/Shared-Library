@@ -5,7 +5,7 @@ public class FileTest {
 
   def buildrelease() {
     def fileList = []
-    def file = new File("https://github.com/b4u-mark/Shared-Library.git")
+    def file = new File("your_repo_dir")
     file.eachFileRecurse (FileType.FILES) { rel_file ->
     fileList << rel_file
     }
