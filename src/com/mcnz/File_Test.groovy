@@ -1,10 +1,12 @@
 package com.mcnz
 
-public class File_Test {
+public class FileTest {
 
   def buildrelease() {
-    def file = new File("D:/Release_Status.csv")
-    
+    def file = new File("https://github.com/b4u-mark/Shared-Library.git")
+    file.eachFileRecurse (FileType.FILES) { file ->
+    fileList << file
+    }
     if (file.exists()){
       return true;
     }
