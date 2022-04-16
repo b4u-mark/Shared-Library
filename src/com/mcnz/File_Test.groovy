@@ -1,22 +1,45 @@
-package com.mcnz
-import groovy.io.FileType
+#!/usr/bin/env groovy
 
-public class FileTest {
+@Grab('com.xlson.groovycsv:groovycsv:0.2')
+import com.xlson.groovycsv.CsvParser
 
-  def buildrelease() {
-    def fileList = []
-    def file = new File("your_repo_dir")
-    file.eachFileRecurse (FileType.FILES) { rel_file ->
-    fileList << rel_file
-    }
-    if (rel_file.exists()){
-      return true;
-    }
-    else {
-      println "File does not exist."
+def call(String repoUrl) {
+  pipeline {
+    agent any 
+    stages {
+      stage("checkout") {
+        steps {
+          git branch: 'master',
+            url: "${repoUrl}"
+        }
+      }
+      stage("build") {
+        steps {
+          bat './gradlew clean build'
+        }
+      }
+      stage('read') {
+           steps {
+               script {
+                   def data = readFile(file: 'Jenkins_CaseStudy.xlsx')
+                   println "The file has ${data.length()} bytes"
+                   def csv = '''Name,Lastname
+                                Susmitha,Sathi
+                                Naveen,Ganta'''
+
+                   def data1 = new CsvParser().parse(csv)
+                   for(line in data1) {
+                        println "$line.Name $line.Lastname"
+                    }
+           }
+       }
+      }
+      stage("Email"){
+            steps{
+             emailext body: '''Hello Your email has configured successfully!!!''', subject: 'Hi This is for email configuration in jenkins', to: 'b4u.mark@gmail.com'
+            }
+            }
     }
     
-    return false;
   }
-
 }
