@@ -1,5 +1,8 @@
 #!/usr/bin/env groovy
 
+@Grab('com.xlson.groovycsv:groovycsv:0.2')
+import com.xlson.groovycsv.CsvParser
+
 // Jenkinsfile (Declarative Pipeline)
 pipeline {
   agent any
@@ -13,6 +16,7 @@ pipeline {
     }
     stage('Analyze & Report') {
       steps {
+               script {
 			 fh = new File('Release_Status.csv')
             	 println "Check Hello"
                    def csv_content = fh.getText('utf-8') 
@@ -22,8 +26,9 @@ pipeline {
                    
 				for(line in data1) {
                         println "$line.Name $line.Lastname"
-		}
-      } 
+		            }
+ 	             }  
+           } 
     }
     stage("Email Notification") {
       steps {
