@@ -14,7 +14,6 @@ pipeline {
     }
     stage('Analyze & Report') {
       steps {
-        script {
 			 fh = new File('Release_Status.csv')
                    def csv_content = fh.getText('utf-8')
 
@@ -24,8 +23,7 @@ pipeline {
                    def data1 = new CsvParser().parse(csv)
                    for(line in data1) {
                         println "$line.Name $line.Lastname"
-                   }
-		    }
+		}
       } 
     }
     stage("Email Notification") {
