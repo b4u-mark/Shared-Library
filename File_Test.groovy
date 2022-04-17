@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
 
 // Jenkinsfile (Declarative Pipeline)
-def call {
 pipeline {
   agent any
   stages {
@@ -32,5 +31,4 @@ pipeline {
       }
     }
   }
-}
 }
