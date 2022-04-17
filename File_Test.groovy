@@ -15,13 +15,11 @@ pipeline {
     stage('Analyze & Report') {
       steps {
 			 fh = new File('Release_Status.csv')
-                   def csv_content = fh.getText('utf-8')
+                   def csv_content = fh.getText('utf-8')                   
 
 			 def data1 = parseCsv(csv_content, separator: ';', readFirstLine: true)
-			 // println data_iterator.getClass()  // class com.xlson.groovycsv.CsvIterator
-
-                   def data1 = new CsvParser().parse(csv)
-                   for(line in data1) {
+                   
+				for(line in data1) {
                         println "$line.Name $line.Lastname"
 		}
       } 
