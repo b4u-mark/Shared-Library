@@ -14,10 +14,11 @@ pipeline {
     }
     stage('Analyze & Report') {
       steps {
+                   echo 'Check 1'
 			 fh = new File('Release_Status.csv')
-            	 println "Check Hello"
+            	 echo 'Check 2'
                    def csv_content = fh.getText('utf-8') 
-			 println "Hello"                  
+			 echo 'Check 3'                  
 
 			 def data1 = parseCsv(csv_content, separator: ';', readFirstLine: true)
                    
