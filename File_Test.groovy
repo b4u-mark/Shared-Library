@@ -4,21 +4,23 @@
 import com.xlson.groovycsv.CsvParser
 
 // Jenkinsfile (Declarative Pipeline)
+def call(String repoUrl) {
 pipeline {
   agent any
   stages {
     stage('Checkout Input') {
       steps {
         echo 'Hello world!'
+	  git branch: 'master',
+        url: "${repoUrl}"
       }
     }
     stage('Analyze & Report') {
       steps {
-                   echo 'Check 1'
 			 fh = new File('Release_Status.csv')
-            	 echo 'Check 2'
+            	 println "Check Hello"
                    def csv_content = fh.getText('utf-8') 
-			 echo 'Check 3'                  
+			 println "Hello"                  
 
 			 def data1 = parseCsv(csv_content, separator: ';', readFirstLine: true)
                    
@@ -33,4 +35,5 @@ pipeline {
       }
     }
   }
+}
 }
