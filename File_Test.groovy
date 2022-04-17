@@ -24,7 +24,8 @@ pipeline {
                    def data1 = new CsvParser().parse(csv)
                    for(line in data1) {
                         println "$line.Name $line.Lastname"
-                    }
+                   }
+		    }
       } 
     }
     stage("Email Notification") {
