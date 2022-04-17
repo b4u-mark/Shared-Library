@@ -1,12 +1,6 @@
 #!/usr/bin/env groovy
 
 // Jenkinsfile (Declarative Pipeline)
-package com.mcnz
-import groovy.io.FileType
-
-public class FileTest {
-
-def buildrelease() {
 pipeline {
   agent any
   stages {
@@ -24,5 +18,3 @@ pipeline {
       }
     }
   }
-}
-}
