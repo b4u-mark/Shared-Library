@@ -1,15 +1,15 @@
 #!/usr/bin/env groovy
 
 // Jenkinsfile (Declarative Pipeline)
-def call(String repoUrl) {
+def call {
 pipeline {
   agent any
   stages {
     stage('Checkout Input') {
       steps {
         echo 'Hello world!'
-	  git branch: 'master',
-        url: "${repoUrl}"
+	  git branch: 'main',
+        url: "https://github.com/b4u-mark/Shared-Library.git"
       }
     }
     stage('Analyze & Report') {
