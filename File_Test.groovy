@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-@Grab('com.xlson.groovycsv:groovycsv:1.3')
+@Grab('com.xlson.groovycsv:groovycsv:0.2')
 import com.xlson.groovycsv.CsvParser
 
 // Jenkinsfile (Declarative Pipeline)
@@ -15,7 +15,9 @@ pipeline {
     stage('Analyze & Report') {
       steps {
 			 fh = new File('Release_Status.csv')
-                   def csv_content = fh.getText('utf-8')                   
+            	 println "Check Hello"
+                   def csv_content = fh.getText('utf-8') 
+			 println "Hello"                  
 
 			 def data1 = parseCsv(csv_content, separator: ';', readFirstLine: true)
                    
