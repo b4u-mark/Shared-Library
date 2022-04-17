@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
-@Grab('com.xlson.groovycsv:groovycsv:0.2')
-import static com.xlson.groovycsv.CsvParser.parseCsv
+@Grab('com.xlson.groovycsv:groovycsv:1.3')
+import com.xlson.groovycsv.CsvParser
 
 // Jenkinsfile (Declarative Pipeline)
 pipeline {
