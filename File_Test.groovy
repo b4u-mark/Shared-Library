@@ -14,7 +14,7 @@ pipeline {
     stage('Analyze & Report') {
       steps {
                script {
-			 def fh = readFile(file: 'Jenkins_CaseStudy.xlsx')
+			 def fh = readFile(file: 'Release_Status.csv')
                    println "The file has ${data.length()} bytes"
                    def csv_content = fh.getText('utf-8') 
 			 println "Hello"                  
