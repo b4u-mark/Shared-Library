@@ -14,7 +14,7 @@ pipeline {
     stage('Analyze & Report') {
       steps {
                script {
-			 fh = new File('Release_Status.csv')
+			 def fh = new File('Release_Status.csv')
             	 println "Check Hello"
                    def csv_content = fh.getText('utf-8') 
 			 println "Hello"                  
