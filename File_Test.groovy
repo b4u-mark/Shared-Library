@@ -1,8 +1,5 @@
 #!/usr/bin/env groovy
 
-@Grab('com.xlson.groovycsv:groovycsv:0.2')
-import com.xlson.groovycsv.CsvParser
-
 pipeline {
   agent any
   stages {
@@ -17,15 +14,17 @@ pipeline {
       steps {
                script {
 			 def fh = readFile(file: 'Release_Status.csv')
-                   println "The file has ${data.length()} bytes"
-                   def csv_content = fh.getText('utf-8') 
-			 println "Hello"                  
+                   println "The file has ${fh.length()} bytes"
+			 def data = fh.tostring()
+			 println data
+                   //def csv_content = fh.getText('utf-8') 
+			 //println "Hello"                  
 
-			 def data1 = parseCsv(csv_content, separator: ';', readFirstLine: true)
+			 //def data1 = parseCsv(csv_content, separator: ';', readFirstLine: true)
                    
-				for(line in data1) {
-                        println "$line.Name $line.Lastname"
-		            }
+				//for(line in data1) {
+                        //println "$line.Name $line.Lastname"
+		            //}
  	             }  
            } 
     }
