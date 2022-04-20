@@ -15,7 +15,7 @@ pipeline {
                script {
 			 def fh = readFile(file: 'Release_Status.csv')
                    println "The file has ${fh.length()} bytes"
-			 def data = fh.tostring()
+			 def data = fh.toString()
 			 println data
                    //def csv_content = fh.getText('utf-8') 
 			 //println "Hello"                  
