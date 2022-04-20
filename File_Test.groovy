@@ -30,7 +30,7 @@ pipeline {
     }
     stage("Email Notification") {
       steps {
-        emailext body: '''Hello Your email has configured successfully!!!''', subject: 'Hi This is for email configuration in jenkins', to: 'b4u.mark@gmail.com'
+        emailext body: '''Hello Your email has configured successfully!!!''', subject: 'Hi This is for email configuration in jenkins', to: 'markandrew_b4u@rediffmail.com'
       }
     }
   }
