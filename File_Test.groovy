@@ -24,11 +24,11 @@ pipeline {
         mail(
             body: "Hi, <p> Please find the attached log for details </p>",
     		charset: 'UTF-8',
-		from: 'b4u.mark@gmail.com',
+		from: 'markandrew_b4u@rediffmail.com',
 		mimeType: 'text/html',
 		replyTo: '',
 		subject: "Reg: Release Log",
-		to: 'b4u.mark@gmail.com'
+		to: 'markandrew_b4u@rediffmail.com'
 		)
       }
     }
