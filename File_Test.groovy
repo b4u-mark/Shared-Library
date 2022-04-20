@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Email Notification') {
       steps {
-        emailext from: 'jenkinsmarkandrew@gmail.com', attachLog: true, body: "Hi, <p> Please find the attached log for details </p>", charset: 'UTF-8', mimeType: 'text/html', subject: "Reg: Release Log", to: 'jenkinsmarkandrew@gmail.com'
+        emailext from: 'jenkinsmarkandrew@gmail.com', attachLog: true, body: "Hi, <p> Please find the attached log for details </p>", mimeType: 'text/html', subject: "Reg: Release Log", to: 'jenkinsmarkandrew@gmail.com'
       }
     }
   }
