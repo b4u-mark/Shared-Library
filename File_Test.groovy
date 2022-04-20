@@ -5,7 +5,6 @@ pipeline {
   stages {
     stage('Checkout Input') {
       steps {
-        echo 'Hello world!'
 	  git branch: 'main',
         url: "https://github.com/b4u-mark/Shared-Library.git"
       }
@@ -17,20 +16,20 @@ pipeline {
                    println "The file has ${fh.length()} bytes"
 			 def data = fh.toString()
 			 println data
-                   //def csv_content = fh.getText('utf-8') 
-			 //println "Hello"                  
-
-			 //def data1 = parseCsv(csv_content, separator: ';', readFirstLine: true)
-                   
-				//for(line in data1) {
-                        //println "$line.Name $line.Lastname"
-		            //}
- 	             }  
+ 	         }  
            } 
     }
-    stage("Email Notification") {
+    stage('Email Notification') {
       steps {
-        emailext from: 'b4u.mark@gmail.com', attachLog: true, body: '''Hello Your email has configured successfully!!!''', subject: 'Hi This is for email configuration in jenkins', to: 'markandrew_b4u@rediffmail.com'
+        mail(
+            body: "Hi, <p> Please find the attached log for details </p>",
+    		charset: 'UTF-8',
+		from: 'b4u.mark@gmail.com',
+		mimeType: 'text/html',
+		replyTo: '',
+		subject: "Reg: Release Log",
+		to: 'b4u.mark@gmail.com'
+		)
       }
     }
   }
